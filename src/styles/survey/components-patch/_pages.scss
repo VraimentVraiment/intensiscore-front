@@ -1,0 +1,29 @@
+@use "@/styles/abstracts/" as *;
+
+.survey-custom-body {
+  overflow: hidden;
+  box-shadow: $shadow--lg;
+  border-radius: $border-radius--md;
+  border: solid 1px $border--default;
+}
+
+.sd-root-modern {
+  background: none !important;
+}
+
+.sd-body {
+  background: $background--default;
+}
+
+.custom-completed-page {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 !important;
+  margin: 4rem 0 2rem;
+
+  h2 {
+    padding: 0 !important;
+  }
+
+}

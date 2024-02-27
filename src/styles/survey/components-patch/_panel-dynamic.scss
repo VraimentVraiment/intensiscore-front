@@ -1,0 +1,80 @@
+@use "@/styles/abstracts/" as *;
+@use '@/styles/components/tabs' as *;
+
+.sd-paneldynamic .survey-custom-panel-content {
+  padding: 2rem 1rem 2rem 0;
+
+  .sd-row {
+    margin-bottom: 2rem;
+
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.sd-paneldynamic__header.sd-element__header.sd-paneldynamic__header-tab::after {
+  display: none !important;
+}
+
+.sd-element--complex>.sd-element__header::after {
+  display: none !important;
+}
+
+.survey-paneldynamic-custom-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sd-paneldynamic__footer .sv-action+.sv-action:not(.sv-action--space) {
+  margin-left: .5rem;
+}
+
+.sv-popup__container {
+  border-radius: $border-radius--md;
+  box-shadow: $shadow--lg;
+  border: solid 1px $border--default;
+  overflow: hidden;
+  padding: .5rem;
+
+  .sv-list__item {
+    @include tab-item;
+    @include tab-item-unactive;
+
+    + .sv-list__item {
+      margin-top: .5rem;
+    }
+  }
+}
+
+.survey-paneldynamic-custom-tabs-root {
+  @include tabs-list;
+  @include tabs-list-default;
+
+  margin-top: 1.5rem;
+
+  .survey-paneldynamic-custom-tab-item {
+    @include tab-item;
+    @include tab-item-unactive;
+
+    &:not(.survey-paneldynamic-custom-tab-item--active) {
+      &:hover {
+        @include tab-item-hover;
+      }
+
+      &:active {
+        @include tab-item-active;
+      }
+
+    }
+
+      &.survey-paneldynamic-custom-tab-item--active {
+        @include tab-item-selected;
+    }
+  }
+}
+
+.sd-paneldynamic__progress-text {
+  display: none !important;
+}

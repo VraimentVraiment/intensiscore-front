@@ -1,0 +1,172 @@
+@use "@/styles/abstracts/" as *;
+
+@mixin tabs-list {
+  padding: .75rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: .5rem;
+  box-shadow: $shadow--lg;
+  border-radius: $border-radius--lg;
+}
+
+@mixin tabs-list-default {
+  border: solid 1px $border--default;
+  background-color: $alt-background--default;
+}
+
+@mixin tabs-list-alt {
+  border: solid 1px $border--default;
+  background-color: $background--default;
+}
+
+@mixin tab-item {
+  padding: .5rem 1rem;
+  height: auto;
+  font-size: 1rem;
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 700;
+  border-radius: $border-radius--sm;
+  cursor: pointer;
+  position: relative;
+
+  p {
+    color: inherit;
+    margin: 0;
+    line-height: 1.2;
+    font-size: .85rem;
+  }
+}
+
+@mixin tab-item-unactive {
+  color: $text--default;
+  background-color: $background--default;
+  border: solid 1px $border--default;
+}
+
+@mixin alt-tab-item-unactive {
+  color: $alt-text--default;
+  background-color: $alt-background--default;
+  border: solid 1px $alt-border--default;
+}
+
+@mixin tab-item-hover {
+  color: $text--hover;
+  border-color: $border--hover;
+  background-color: $background--hover;
+}
+
+@mixin alt-tab-item-hover {
+  color: $alt-text--hover;
+  border-color: $alt-border--hover;
+  background-color: $alt-background--hover;
+}
+
+@mixin tab-item-active {
+  color: $text--active;
+  border-color: $border--active;
+  background-color: $background--active;
+}
+
+@mixin alt-tab-item-active {
+  color: $alt-text--active;
+  border-color: $alt-border--active;
+  background-color: $alt-background--active;
+}
+
+@mixin tab-item-selected {
+  cursor: default;
+  background-color: $contrast-background--default;
+  color: $contrast-text--default;
+  border-color: $contrast-border--default !important;
+  position: relative;
+
+  &::after {
+    display: block;
+    height: 2px;
+    transform: translateY(1px);
+    background-color: $background--default;
+  }
+}
+
+div[role="tablist"] {
+  @include tabs-list;
+
+  &:not(.alt-colors) {
+    @include tabs-list-default;
+
+    button[role="tab"] {
+      @include tab-item;
+      @include tab-item-unactive;
+
+      &:not([aria-selected="true"]) {
+        &:hover {
+          @include tab-item-hover;
+        }
+
+        &:active {
+          @include tab-item-active;
+
+        }
+      }
+    }
+  }
+
+  &.alt-colors {
+    @include tabs-list-alt;
+
+    button[role="tab"] {
+      @include tab-item;
+      @include alt-tab-item-unactive;
+
+      &:not([aria-selected="true"]) {
+        &:hover {
+          @include alt-tab-item-hover;
+        }
+
+        &:active {
+          @include alt-tab-item-active;
+
+        }
+
+        // &:focus:not(:active) {
+        //   border: solid 1px $border--default !important;
+        //   border-bottom: none !important;
+        //   outline: none !important;
+        //   box-shadow: none !important;
+        // }
+      }
+    }
+  }
+
+  button[role="tab"] {
+    @include tab-item;
+    @include tab-item-unactive;
+
+    &:not([aria-selected="true"]) {
+      &:hover {
+        @include tab-item-hover;
+      }
+
+      &:active {
+        @include tab-item-active;
+
+      }
+
+      // &:focus:not(:active) {
+      //   border: solid 1px $border--default !important;
+      //   border-bottom: none !important;
+      //   outline: none !important;
+      //   box-shadow: none !important;
+      // }
+    }
+
+    &[aria-selected="true"] {
+      @include tab-item-selected;
+    }
+  }
+}

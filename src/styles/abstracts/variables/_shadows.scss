@@ -1,0 +1,13 @@
+@use 'colors' as *;
+
+$shadow--lg: 0 0 1.5rem 0 rgb(30 30 30 / 12%);
+$shadow--md: 0 0 1rem 0 rgb(30 30 30 / 10%);
+$shadow--sm: 0 0 .75rem 0 rgb(30 30 30 / 8%);
+$shadow--focus: 0 0 0 2px $contrast-border--active;
+
+@mixin shadow-focus {
+  outline: none;
+  transition: box-shadow .2s ease-in-out, border-color .2s ease-in-out;
+  border-color: white;
+  box-shadow: $shadow--focus;
+}

@@ -1,0 +1,29 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "eslint.enable": true,
+  "eslint.debug": false,
+  "eslint.experimental.useFlatConfig": true,
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "stylelint.validate": [
+    "css",
+    "html",
+    "less",
+    // "markdown",
+    "postcss",
+    "sass",
+    "scss",
+    "source.css.styled",
+    "source.markdown.math",
+    "sugarss",
+    "vue",
+    "vue-html",
+    "vue-postcss",
+    "xml",
+    "xsl"
+  ],
+}

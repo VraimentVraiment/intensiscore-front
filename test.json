@@ -1,0 +1,44 @@
+{
+  "building-nFloors": 2,
+  "building-hasFlatRoof": "yes",
+  "building-hasBasement": "yes",
+  "building-nBasementsLevels": 1,
+  "building-hasIndoorParking": "yes",
+  "building-hasCave": "yes",
+  "building-hasOutdoorSpaces": "yes",
+  "building-hasVacantSpace": "yes",
+  "building-mainUsages": [
+    {
+      "tabTitle": "Usage 0",
+      "building-usage__id": "0273f7fe-7baa-4117-bd85-33fae297f64a",
+      "building-usage__userLabel": "Usage 0",
+      "building-usage__category": "habitation",
+      "building-usage__subCategory": "housing",
+      "building-usage_i__categoryText": "Habitation",
+      "building-usage_i__subCategoryText": "Logement",
+    }
+  ],
+  "building-usagesTimings": [
+    {
+      "tabTitle": "Usage 0",
+      "building-usage__id": "0273f7fe-7baa-4117-bd85-33fae297f64a",
+      "building-usage__userLabel": "Usage 0",
+      "building-usage__category": "habitation",
+      "building-usage__subCategory": "housing",
+      "building-usage_i__categoryText": "Habitation",
+      "building-usage_i__subCategoryText": "Logement",
+      "usageLabel": "Usage 0",
+      "building-usage__openingWeeks": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52]",
+      "building-usage__weekFrequentationDescription": "openingWeeksDescription-identical",
+      "building-usage_i__hourlyIntensity__all": {
+        "morning": 2,
+        "noon": 2,
+        "afternoon": 2,
+        "late-afternoon": 2,
+        "evening": 2,
+        "night": 2
+      }
+    }
+  ],
+  "building-usageRepartition": "[{\"usages\":[],\"id\":2,\"isRoof\":true},{\"usages\":[{\"tabTitle\":\"Usage 0\",\"building-usage__id\":\"0273f7fe-7baa-4117-bd85-33fae297f64a\",\"building-usage__userLabel\":\"Usage 0\",\"building-usage__category\":\"habitation\",\"building-usage__subCategory\":\"housing\"}],\"id\":1,\"isRoof\":false},{\"usages\":[{\"tabTitle\":\"Usage 0\",\"building-usage__id\":\"0273f7fe-7baa-4117-bd85-33fae297f64a\",\"building-usage__userLabel\":\"Usage 0\",\"building-usage__category\":\"habitation\",\"building-usage__subCategory\":\"housing\"}],\"id\":0,\"isRoof\":false},{\"usages\":[],\"id\":-1,\"isRoof\":false}]"
+}

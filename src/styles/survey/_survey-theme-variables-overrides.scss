@@ -1,0 +1,97 @@
+@use "@/styles/abstracts/" as *;
+
+/* stylelint-disable custom-property-pattern */
+:root {
+  --sjs-font-questiontitle-size: 1.25rem;
+  --sjs-general-backcolor: #{$background--default};
+  --sjs-questionpanel-backcolor: #{$background--default};
+  --sjs-general-backcolor-dim: #{$background--default};
+  --sjs-general-backcolor-dim-light: #{$background--hover};
+  --sjs-general-forecolor: $text--default;
+  --sjs-general-forecolor-light: $alt-text--default;
+  --sjs-general-dim-forecolor: $text--default;
+  --sjs-general-dim-forecolor-light: $alt-text--default;
+  --sjs-primary-backcolor: #{$contrast-background--default};
+  --sjs-primary-backcolor-light: rgb(25 179 148 / 10%);
+  --sjs-primary-backcolor-dark: rgb(20 164 139 / 100%);
+  --sjs-primary-forecolor: rgb(255 255 255 / 100%);
+  --sjs-primary-forecolor-light: rgb(255 255 255 / 25%);
+  --sjs-base-unit: .5rem;
+  --sjs-corner-radius: #{$border-radius--sm};
+
+  // secondary color
+  --sjs-secondary-backcolor: rgb(255 152 20 / 100%);
+  --sjs-secondary-backcolor-light: rgb(255 152 20 / 10%);
+  --sjs-secondary-backcolor-semi-light: rgb(255 152 20 / 25%);
+  --sjs-secondary-forecolor: rgb(255 255 255 / 100%);
+  --sjs-secondary-forecolor-light: rgb(255 255 255 / 25%);
+
+  // shadows
+  --sjs-shadow-small: none;
+  --sjs-shadow-small-reset: none;
+  --sjs-shadow-medium: none;
+  --sjs-shadow-large: none;
+  --sjs-shadow-inner: none;
+  --sjs-shadow-inner-reset: none;
+
+  // borders
+  --sjs-border-light: #{$border--hover};
+  --sjs-border--default: #{$border--default};
+  --sjs-border-inside: #{$border--default};
+
+  // special colors
+  --sjs-special-red: rgb(229 10 62 / 100%);
+  --sjs-special-red-light: rgb(229 10 62 / 10%);
+  --sjs-special-red-forecolor: rgb(255 255 255 / 100%);
+  --sjs-special-green: rgb(25 179 148 / 100%);
+  --sjs-special-green-light: rgb(25 179 148 / 10%);
+  --sjs-special-green-forecolor: rgb(255 255 255 / 100%);
+  --sjs-special-blue: rgb(67 127 217 / 100%);
+  --sjs-special-blue-light: rgb(67 127 217 / 10%);
+  --sjs-special-blue-forecolor: rgb(255 255 255 / 100%);
+  --sjs-special-yellow: rgb(255 152 20 / 100%);
+  --sjs-special-yellow-light: rgb(255 152 20 / 10%);
+  --sjs-special-yellow-forecolor: rgb(255 255 255 / 100%);
+
+  // texts
+  --sjs-article-font-xx-large-textDecoration: none;
+  --sjs-article-font-xx-large-fontWeight: 700;
+  --sjs-article-font-xx-large-fontStyle: normal;
+  --sjs-article-font-xx-large-fontStretch: normal;
+  --sjs-article-font-xx-large-letterSpacing: 0;
+  --sjs-article-font-xx-large-lineHeight: 64px;
+  --sjs-article-font-xx-large-paragraphIndent: 0px;
+  --sjs-article-font-xx-large-textCase: none;
+  --sjs-article-font-x-large-textDecoration: none;
+  --sjs-article-font-x-large-fontWeight: 700;
+  --sjs-article-font-x-large-fontStyle: normal;
+  --sjs-article-font-x-large-fontStretch: normal;
+  --sjs-article-font-x-large-letterSpacing: 0;
+  --sjs-article-font-x-large-lineHeight: 56px;
+  --sjs-article-font-x-large-paragraphIndent: 0px;
+  --sjs-article-font-x-large-textCase: none;
+  --sjs-article-font-large-textDecoration: none;
+  --sjs-article-font-large-fontWeight: 700;
+  --sjs-article-font-large-fontStyle: normal;
+  --sjs-article-font-large-fontStretch: normal;
+  --sjs-article-font-large-letterSpacing: 0;
+  --sjs-article-font-large-lineHeight: 40px;
+  --sjs-article-font-large-paragraphIndent: 0px;
+  --sjs-article-font-large-textCase: none;
+  --sjs-article-font-medium-textDecoration: none;
+  --sjs-article-font-medium-fontWeight: 700;
+  --sjs-article-font-medium-fontStyle: normal;
+  --sjs-article-font-medium-fontStretch: normal;
+  --sjs-article-font-medium-letterSpacing: 0;
+  --sjs-article-font-medium-lineHeight: 32px;
+  --sjs-article-font-medium-paragraphIndent: 0px;
+  --sjs-article-font-medium-textCase: none;
+  --sjs-article-font-default-textDecoration: none;
+  --sjs-article-font-default-fontWeight: 400;
+  --sjs-article-font-default-fontStyle: normal;
+  --sjs-article-font-default-fontStretch: normal;
+  --sjs-article-font-default-letterSpacing: 0;
+  --sjs-article-font-default-lineHeight: 28px;
+  --sjs-article-font-default-paragraphIndent: 0px;
+  --sjs-article-font-default-textCase: none;
+}

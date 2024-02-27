@@ -1,0 +1,158 @@
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  font-weight: 600;
+  cursor: pointer;
+  border: solid 1px;
+  gap: 0.5em;
+  box-shadow: $shadow--sm;
+  letter-spacing: 0.025em;
+
+  a {
+    color: currentcolor;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:focus-visible {
+    @include shadow-focus;
+  }
+}
+
+@mixin button-extra-small {
+  & {
+    padding: 0.5em;
+    font-size: 0.75rem !important;
+  }
+}
+
+@mixin button-small {
+  & {
+    padding: 0.5em 1em;
+    font-size: 0.875rem !important;
+  }
+}
+
+@mixin button-medium {
+  & {
+    padding: 0.75em 1.5em;
+    font-size: 1rem;
+  }
+}
+
+@mixin button-large {
+  & {
+    padding: 1em 2em;
+    font-size: 1.125rem !important;
+  }
+}
+
+%button {
+  @include button-base;
+  @include button-medium;
+
+  &.button--xs {
+    @include button-extra-small;
+  }
+
+  &.button--sm {
+    @include button-small;
+  }
+
+  &.button--lg {
+    @include button-large;
+  }
+
+  &.button--primary {
+    @extend %contrast-action-box;
+
+    .contrast & {
+      @extend %alt-action-box;
+    }
+  }
+
+  &.button--secondary {
+    @extend %alt-action-box;
+
+    .contrast & {
+      @extend %contrast-action-box;
+    }
+  }
+
+  &.button--tertiary {
+    @extend %default-action-box;
+
+    .contrast & {
+      @extend %contrast-action-box;
+    }
+  }
+
+  &.button--icon-left {
+    flex-direction: row-reverse;
+  }
+
+  &.button--icon-only {
+    justify-content: center;
+
+    .button__icon {
+      transform: scale(1.25);
+    }
+  }
+
+  &.button--no-border {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .button__label {
+    min-height: 1.25em;
+  }
+
+  .button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.25em;
+    width: 1.25em;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  max-width: $max-p-width;
+
+  %button {
+    flex: 1 1 auto;
+  }
+}
+
+button:not(.nav-menu__button, .switch-button),
+.button,
+.sd-paneldynamic__buttons-container button,
+.sd-paneldynamic__btn {
+  @extend %button;
+}
+
+#sv-pd-prev-btn button,
+#sv-pd-next-btn button {
+  @include button-base;
+  @include button-medium;
+  @extend %default-action-box;
+}

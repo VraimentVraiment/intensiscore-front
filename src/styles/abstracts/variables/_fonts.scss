@@ -1,0 +1,21 @@
+/**
+ * FONTS
+ */
+$main-font-name: "Open Sans Subset";
+$default-fonts: "Open Sans", -apple-system, system-ui, blinkmacsystemfont, sans-serif;
+$font-family: $main-font-name, $default-fonts;
+$font-path: "~/assets/fonts/open-sans";
+$font-prefix: "subset-OpenSans";
+$font-display: swap;
+$font-styles: (
+  normal: "",
+  italic: "Italic",
+);
+$font-weights: (
+  300: "-Light",
+  400: "-Regular",
+  500: "-Medium",
+  600: "-SemiBold",
+  700: "-Bold",
+  800: "-ExtraBold",
+);

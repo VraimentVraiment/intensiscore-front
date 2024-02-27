@@ -1,0 +1,151 @@
+@use '@/styles/abstracts/variables/' as *;
+
+%box {
+  border-radius: $border-radius--sm;
+}
+
+%default-box {
+  @extend %box;
+
+  color: $text--default;
+  border-color: $border--default;
+  background-color: $background--default;
+}
+
+%default-box-border {
+  @extend %default-box;
+
+  border-style: solid;
+  border-width: 1px;
+}
+
+%default-box-border-md {
+  @extend %default-box-border;
+
+  border-radius: $border-radius--md;
+  box-shadow: $shadow--md;
+}
+
+%default-action-box {
+  @extend %default-box;
+
+  &:hover {
+    color: $text--hover;
+    background-color: $background--hover;
+    border-color: $border--hover;
+  }
+
+  &:active {
+    color: $text--active;
+    background-color: $background--active;
+    border-color: $border--active;
+  }
+}
+
+%alt-box {
+  @extend %box;
+
+  color: $alt-text--default;
+  border-color: $alt-border--default;
+  background-color: $alt-background--default;
+}
+
+%alt-action-text {
+  color: $alt-text--default;
+
+  &:hover {
+    color: $alt-text--hover;
+  }
+
+  &:active {
+    color: $alt-text--active;
+  }
+}
+
+%alt-action-box {
+  @extend %alt-box;
+  @extend %alt-action-text;
+
+  &:hover {
+    background-color: $alt-background--hover;
+    border-color: $alt-border--hover;
+  }
+
+  &:active {
+    background-color: $alt-background--active;
+    border-color: $alt-border--active;
+  }
+}
+
+%contrast-box {
+  @extend %box;
+
+  color: $contrast-text--default;
+  border-color: $contrast-border--default;
+  background-color: $contrast-background--default;
+}
+
+%contrast-action-text {
+  color: $contrast-text--default;
+
+  &:hover {
+    color: $contrast-text--hover;
+  }
+
+  &:active {
+    color: $contrast-text--active;
+  }
+}
+
+
+%contrast-action-box {
+  @extend %contrast-box;
+  @extend %contrast-action-text;
+
+  &:hover {
+    background-color: $contrast-background--hover;
+    border-color: $contrast-border--hover;
+  }
+
+  &:active {
+    background-color: $contrast-background--active;
+    border-color: $contrast-border--active;
+  }
+}
+
+
+.default-box {
+  @extend %default-box;
+}
+
+.default-action-box {
+  @extend %default-action-box;
+}
+
+.alt-box {
+  @extend %alt-box;
+}
+
+.alt-action-box {
+  @extend %alt-action-box;
+}
+
+.contrast-box {
+  @extend %contrast-box;
+}
+
+.contrast-action-box {
+  @extend %contrast-action-box;
+}
+
+.alt-action-text {
+  @extend %alt-action-text;
+}
+
+.contrast-action-text {
+  @extend %contrast-action-text;
+}
+
+.contrast {
+  background-color: $contrast-background--default;
+}

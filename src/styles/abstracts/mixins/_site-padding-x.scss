@@ -1,0 +1,24 @@
+
+@mixin site-padding-x {
+  @apply px-[max(1rem,5%)]
+  @apply md:px-[4rem];
+  @apply lg:px-[8rem];
+  @apply xl:px-[calc(50%-32rem)];
+  @apply xxl:px-[calc(50%-36rem)];
+}
+
+@mixin site-margin-x {
+  @apply mx-[max(1rem,5%)]
+  @apply md:mx-[4rem];
+  @apply lg:mx-[8rem];
+  @apply xl:mx-[calc(50%-32rem)];
+  @apply xxl:mx-[calc(50%-36rem)];
+}
+
+.site-padding-x {
+  @include site-padding-x;
+}
+
+.site-margin-x {
+  @include site-margin-x;
+}

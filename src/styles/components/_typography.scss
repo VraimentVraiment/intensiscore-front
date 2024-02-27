@@ -1,0 +1,146 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.5em 0 .75em;
+  font-weight: 700;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2 {
+  color: $alt-text--default;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: $text--default;
+}
+
+.contrast {
+  >h1,
+  >h2 {
+    color: $contrast-text--default;
+  }
+
+  >h3,
+  >h4,
+  >h5,
+  >h6 {
+    color: $contrast-text--default;
+  }
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+h5 {
+  @apply text-lg;
+}
+
+h6 {
+  @apply text-base;
+}
+
+p {
+  max-width: $max-p-width;
+
+  @apply text-base;
+
+  line-height: 1.65 !important;
+  margin: 1em 0;
+  color: $text--default;
+
+  .contrast >& {
+    color: $contrast-text--default;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  +p {
+    margin-top: 1em;
+  }
+}
+
+ul {
+  color: $text--default;
+}
+
+%alt-text {
+  color: $alt-text--default;
+
+  .contrast >& {
+    color: $contrast-text--default;
+  }
+
+  &:hover {
+    color: $alt-text--hover;
+  }
+
+  &:active {
+    color: $alt-text--active;
+  }
+}
+
+%link {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  text-decoration-thickness: 0.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+
+  &[aria-current='page'] {
+    text-decoration: none;
+  }
+
+  @extend %alt-text;
+}
+
+a:not(button a) {
+  @extend %link;
+}
+
+a:not(button a, nav a) {
+  @extend %alt-action-box;
+
+  &:focus-visible {
+    @include shadow-focus;
+  }
+}
+
+span.alt-box,
+span.default-box,
+span.contrast-box {
+  display: inline-block;
+  line-height: inherit;
+}

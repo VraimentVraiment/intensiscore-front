@@ -1,0 +1,19 @@
+:root {
+  font-family: $font-family;
+
+  @include under-md {
+    font-size: 15px;
+  }
+
+  @include md {
+    font-size: 16px;
+  }
+
+  @include lg {
+    font-size: 17px;
+  }
+
+  @include over-xl {
+    font-size: 18px;
+  }
+}

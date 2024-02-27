@@ -1,0 +1,14 @@
+@use "@/styles/abstracts/" as *;
+
+.sd-input.sd-text {
+  border: solid 1px $border--default;
+  height: 3.5rem;
+
+  &:hover {
+    border-color: $border--hover;
+  }
+
+  &:focus {
+    @include shadow-focus;
+  }
+}

@@ -1,0 +1,90 @@
+@use "sass:map";
+@use "@/styles/abstracts/variables/breakpoints" as *;
+
+@function bp($name) {
+  @return map.get($breakpoints, $name);
+}
+
+@mixin sm {
+  @media screen and (min-width: (bp(sm) + 1)) and (max-width: bp(md)) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: (bp(md) + 1)) and (max-width: bp(lg)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: (bp(lg) + 1)) and (max-width: bp(xl)) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: (bp(xl) + 1)) and (max-width: bp(xxl)) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media screen and (min-width: (bp(xxl) + 1)) {
+    @content;
+  }
+}
+
+@mixin under-sm {
+  @media screen and (max-width: bp(sm)) {
+    @content;
+  }
+}
+
+@mixin under-md {
+  @media screen and (max-width: bp(md)) {
+    @content;
+  }
+}
+
+@mixin under-lg {
+  @media screen and (max-width: bp(lg)) {
+    @content;
+  }
+}
+
+@mixin under-xl {
+  @media screen and (max-width: bp(xl)) {
+    @content;
+  }
+}
+
+@mixin under-xxl {
+  @media screen and (max-width: bp(xxl)) {
+    @content;
+  }
+}
+
+@mixin over-sm {
+  @media screen and (min-width: (bp(sm) + 1)) {
+    @content;
+  }
+}
+
+@mixin over-md {
+  @media screen and (min-width: (bp(md) + 1)) {
+    @content;
+  }
+}
+
+@mixin over-lg {
+  @media screen and (min-width: (bp(lg) + 1)) {
+    @content;
+  }
+}
+
+@mixin over-xl {
+  @media screen and (min-width: (bp(xl) + 1)) {
+    @content;
+  }
+}

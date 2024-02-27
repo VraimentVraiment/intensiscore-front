@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use 'sass:color';
+@use '@/styles/abstracts/variables/colors' as *;
+
+$categories: (
+  (
+    keys: (habitation, housing, accommodation),
+    color: $categorical-yellow,
+  ),
+  (
+    keys: (other-activities, industry, warehouse, office, congress, kitchen-business),
+    color: $categorical-pink,
+  ),
+  (
+    keys: (commerce, craft-and-retail, restaurant, wholesale, services, cinema, hotels, other-accommodation),
+    color: $categorical-orange,
+  ),
+  (
+    keys: (public-services, public-services-public, public-services-technical, public-services-technical, health-and-education, art-and-spectacles, sports, worship, other-public-service),
+    color: $categorical-blue,
+  ),
+  (
+    keys: (others, sub-others, parking, outdoor-spaces, vacant-space, cave),
+    color: $categorical-grey,
+  )
+);
+
+@mixin use-category-color {
+  @each $category in $categories {
+    $keys: map.get($category, keys);
+    $color: map.get($category, color);
+    $color-light: color.adjust($color, $lightness: 5%);
+    $color-dark: color.adjust($color, $lightness: -5%);
+    $color-xdark: color.adjust($color, $lightness: -10%);
+
+    @each $key in $keys {
+      &[data-category="#{$key}"] {
+        --category-color: #{$color};
+        --category-color-light: #{$color-light};
+        --category-color-dark: #{$color-dark};
+        --category-color-xdark: #{$color-xdark};
+        @content;
+      }
+    }
+  }
+}

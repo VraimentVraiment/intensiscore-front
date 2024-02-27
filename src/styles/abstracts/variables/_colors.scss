@@ -1,0 +1,79 @@
+/**
+ * Base colors
+ */
+$grey--200: #333;
+$grey--300: #4D4D4D;
+$grey--400: #666;
+$grey--600: #999;
+$grey--800: #CCC;
+$grey--850: #D9D9D9;
+$grey--900: #E5E5E5;
+$grey--950: #F2F2F2;
+$grey--1000: #FFF;
+$color-primary--950: #eef2f6;
+$color-primary--900: #dde4eb;
+$color-primary--850: #cdd6e1;
+$color-primary--800: #bcc8d6;
+$color-primary--700: #9dadc2;
+$color-primary--600: #8093ae;
+$color-primary--500: #63799a;
+$color-primary--400: #485f87;
+$color-primary--300: #2c4774;
+$color-primary--200: #0b3061;
+
+// $color-primary--200: #0B3061;
+// $color-primary--300: #274371;
+// $color-primary--400: #435C89;
+// $color-primary--500: #5E78A1;
+// $color-primary--600: #8394AF;
+// $color-primary--700: #A1B0C4;
+// $color-primary--800: #C0CAD8;
+// $color-primary--850: #D0D8E2;
+// $color-primary--900: #DFE5EC;
+// $color-primary--950: #EEF2F6;
+
+/**
+ * Semantic tokens
+ */
+$background--default: $grey--1000;
+$background--hover: $grey--950;
+$background--active: $color-primary--950;
+$alt-background--default: $color-primary--950;
+$alt-background--hover: $color-primary--900;
+$alt-background--active: $color-primary--850;
+$contrast-background--default: $color-primary--200;
+$contrast-background--hover: $color-primary--400;
+$contrast-background--active: $color-primary--500;
+$text--default: $grey--200;
+$text--hover: $grey--300;
+$text--active: $color-primary--300;
+$alt-text--default: $color-primary--200;
+$alt-text--hover: $color-primary--400;
+$alt-text--active: $color-primary--300;
+$contrast-text--default: $grey--1000;
+$contrast-text--hover: $color-primary--900;
+$contrast-text--active: $color-primary--800;
+$border--default: $grey--600;
+$border--hover: $grey--200;
+$border--active: $color-primary--200;
+$alt-border--default: $color-primary--200;
+$alt-border--hover: $color-primary--400;
+$alt-border--active: $color-primary--300;
+$contrast-border--default: $color-primary--200;
+$contrast-border--hover: $color-primary--400;
+$contrast-border--active: $color-primary--500;
+
+/**
+ * Categorical scale
+ */
+
+$categorical-yellow: #ECFFC7;
+$categorical-orange: #FDCDAC;
+$categorical-blue: #CBCDE8;
+$categorical-pink: #F4CAE4;
+$categorical-grey: #ccc;
+
+/**
+ * Misc
+ */
+ $tag-bg: #B3E2CD;

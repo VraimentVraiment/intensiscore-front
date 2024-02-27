@@ -1,0 +1,148 @@
+@use '@/styles/abstracts/' as *;
+
+.custom-matrix-table {
+  margin: 1px;
+  width: calc(100% - .5rem);
+
+  thead {
+    display: none;
+
+    @include over-md {
+      display: block;
+    }
+  }
+
+  tbody {
+    width: 100%;
+  }
+}
+
+.custom-matrix-table thead tr,
+.custom-matrix-row {
+  display: flex;
+  width: 100% !important;
+  justify-content: stretch;
+  flex-direction: column;
+
+  @include under-md {
+    margin-bottom: 1px;
+  }
+
+  @include over-md {
+    flex-direction: row;
+  }
+}
+
+.custom-matrix-table thead tr td,
+.custom-matrix-row-text-cell {
+  width: 100% !important;
+
+  @include over-md {
+    width: 8rem !important;
+  }
+}
+
+.custom-matrix-cell {
+  flex: 1;
+  outline: solid 1px $alt-border--default;
+  background: $alt-background--default;
+  cursor: pointer;
+
+  @include md {
+    width: 2rem !important;
+  }
+
+  &:hover {
+    background: $alt-background--hover;
+  }
+
+  &:active {
+    background: $alt-background--active;
+
+    .custom-matrix-material-decorator {
+      background: $contrast-background--active;
+    }
+  }
+
+  label {
+    padding: 0;
+  }
+
+  .sd-matrix__responsive-title {
+    // display: none;
+  }
+}
+
+.custom-matrix-material-decorator {
+  border: solid 1px $alt-border--default;
+  background: $background--default;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 1rem;
+
+  .sd-item--checked & {
+    background: $contrast-background--default;
+  }
+}
+
+.custom-matrix-header-cell {
+  flex: 1;
+  align-items: flex-end;
+}
+
+.custom-matrix-row-text-cell {
+  padding-right: 1.5rem !important;
+  background: $background--default !important;
+  margin: 1px;
+
+  @include over-md {
+    justify-content: flex-end;
+
+    span {
+      text-align: right;
+    }
+  }
+}
+
+.custom-matrix-header-cell,
+.custom-matrix-row-text-cell,
+.custom-matrix-cell,
+.custom-matrix-table thead tr td {
+  padding: 0.5rem 1rem;
+  display: flex;
+}
+
+.custom-matrix-row-text-cell,
+.custom-matrix-cell,
+.custom-matrix-table thead tr td {
+  align-items: center;
+}
+
+.custom-matrix-header-cell,
+.custom-matrix-cell {
+  box-sizing: border-box;
+  justify-content: flex-start;
+  min-width: 4rem;
+
+  @include over-md {
+    justify-content: center;
+  }
+}
+
+.custom-matrix-header-cell,
+.custom-matrix-row-text-cell {
+  color: $alt-text--default;
+  text-wrap: balance;
+
+  span {
+    @include md {
+      font-size: .9rem;
+    }
+
+    @include lg {
+      font-size: 1rem;
+    }
+  }
+}
