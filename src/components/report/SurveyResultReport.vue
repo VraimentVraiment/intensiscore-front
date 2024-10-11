@@ -107,7 +107,7 @@ const downloadReport = async () => {
     </section>
     <section
       ref="visualreport"
-      class="p-8 absolute z-[-999] w-800px h-600px"
+      class="p-8 fixed z-[-999] w-800px h-600px"
     >
       <div>
         <h2 class="text-2xl">
