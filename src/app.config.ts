@@ -70,7 +70,7 @@ export default defineAppConfig({
       text: 'Plan du site',
     },
   ],
-  guideFilename: '20241015_Guide intensité d\'usage_Pages.pdf',
+  guideFilename: '20241015_guide_intensite_usage__pages.pdf',
   // Directus
   PAGES_COLLECTION_NAME: 'intensiscore__pages',
   SHEETS_COLLECTION_NAME: 'intensiscore__solution_sheets',
