@@ -68,7 +68,7 @@ export const surveySchema: Record<string, unknown> = {
           choices: [
             {
               value: 'consent-accept-mails',
-              text: 'Je consens à ce que les membres fondateurs de l’action collective à l’origine de l’Intensi’Score m’envoient des mails concernant les actualités et temps forts de la démarche.<a target="_blank" href="/content/politique-de-confidentialite">En savoir plus</a>',
+              text: 'Je consens à ce que les membres fondateurs de l’action collective à l’origine de l’Intensi’Score m’envoient des mails concernant les actualités et temps forts de la démarche. <a target="_blank" href="/content/politique-de-confidentialite">En savoir plus</a>',
             },
           ],
         },
