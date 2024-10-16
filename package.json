@@ -41,6 +41,7 @@
     "nuxt": "^3.13.2",
     "nuxt-directus": "^5.6.1",
     "nuxt-link-checker": "^3.1.2",
+    "nuxt-seo-experiments": "^4.0.1",
     "pinia": "^2.2.4",
     "showdown": "^2.1.0",
     "survey-core": "^1.12.5",
