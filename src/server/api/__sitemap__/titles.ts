@@ -46,7 +46,7 @@ export default defineSitemapEventHandler(async () => {
 
     const sheetsUrls = sheetsSlugs.map((sheet: { id: string, title: string }) => ({
       loc: `/fiches/${sheet.id}`,
-      // title: sheet.title,
+      title: sheet.title,
       // lastmod: new Date().toISOString(),
     }))
 
