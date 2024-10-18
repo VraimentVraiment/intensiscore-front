@@ -1,9 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
   title: 'Résultat du diagnostic',
-})
-
-definePageMeta({
   middleware: [
     function (to) {
       if (import.meta.client) {
@@ -21,10 +18,6 @@ definePageMeta({
 
 const route = useRoute()
 const reportId = route.params.id as string
-
-useSeoMeta({
-  title: 'Résultats du diagnostic simple',
-})
 
 const {
   data,

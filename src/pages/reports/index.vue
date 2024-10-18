@@ -6,31 +6,21 @@ definePageMeta({
 const {
   validPreviousReports,
 } = storeToRefs(useSurveyReportsStore())
-const { getItems } = useDirectusItems()
-
-const { SURVEY_RESULTS_COLLECTION_NAME } = useAppConfig()
 
 const { data: reports, error, pending } = useAsyncData('previous-reports', async () => {
   if (!validPreviousReports.value?.length) {
     return []
   }
-  const items = await getItems<CmsSurveyRecord>({
-    collection: SURVEY_RESULTS_COLLECTION_NAME,
-    params: {
-      filter: {
-        id: {
-          _in: validPreviousReports.value.map(({ id }) => id),
-        },
-      },
-      fields: ['id', 'date_created', 'survey_label'],
-      sort: ['-date_created'],
+  const data = await $fetch('/api/reports/list', {
+    method: 'POST',
+    body: {
+      reports: validPreviousReports.value,
     },
   })
-  return items ?? []
+  return data ?? []
 }, {
   server: false,
 })
-
 const reportCards = computed(() => {
   return reports.value?.map((report) => {
     const date = getReportDate(report.date_created)

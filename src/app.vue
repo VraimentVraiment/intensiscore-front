@@ -1,4 +1,12 @@
 <script setup lang="ts">
+useHead({
+  meta: [
+    {
+      name: 'google-site-verification',
+      content: 'aQGrgOfwOtCy5IiKcgYzEv8kChIC-r4mordTsbAiDbo',
+    },
+  ],
+})
 defineOgImage({
   url: '/img/intensiscore-metaimg_og.png',
   width: 1200,

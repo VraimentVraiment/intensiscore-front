@@ -2,6 +2,10 @@
 definePageMeta({
   title: 'Accueil',
 })
+useHead({
+  title: 'Intensi\'Score',
+  titleTemplate: '%s',
+})
 const { guideFilename } = useAppConfig()
 </script>
 
