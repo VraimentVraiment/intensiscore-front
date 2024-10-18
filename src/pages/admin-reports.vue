@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { useAsyncData } from '#app'
+import { onClickOutside } from '@vueuse/core'
 
 definePageMeta({
   middleware: ['admin'],
 })
 
-const { data: reports, error, pending } = useAsyncData('previous-reports', async () => {
+const { data: reports, error, pending } = useAsyncData<CmsSurveyRecord[]>('previous-reports', async () => {
   const data = await $fetch('/api/reports/list', {
     method: 'POST',
     body: {
       admin: true,
+      sort: '-date_created',
     },
   })
   return data ?? []
@@ -19,7 +20,7 @@ const { data: reports, error, pending } = useAsyncData('previous-reports', async
 
 const selectedReport = ref<CmsSurveyRecord | null>(null)
 
-const reportData = ref<null | object>(null)
+const reportData = ref(null) as Ref<InspectableReportProps | null>
 const setSelectedReport = async (report: CmsSurveyRecord) => {
   const { data } = await $fetch(`/api/reports/${report.id}`)
   const result = parseSurveyResult(data.content)
@@ -42,11 +43,11 @@ const setSelectedReport = async (report: CmsSurveyRecord) => {
     selectedWeekSlice,
   })
   reportData.value = {
-    floorsScores,
-    totalScore,
-    usagesScores,
-    floorsWithUsages,
-    mainUsages,
+    floorsScores: floorsScores.value,
+    totalScore: totalScore.value,
+    usagesScores: usagesScores.value,
+    floorsWithUsages: floorsWithUsages,
+    usagesIds: mainUsages,
   }
 
   selectedReport.value = report
@@ -55,6 +56,12 @@ const setSelectedReport = async (report: CmsSurveyRecord) => {
 const closeSelectedReport = () => {
   selectedReport.value = null
 }
+const modal = ref<HTMLElement | null>(null)
+onClickOutside(modal, () => {
+  if (selectedReport.value) {
+    closeSelectedReport()
+  }
+})
 
 const navigateReport = (direction: 'next' | 'prev') => {
   if (!selectedReport.value || !reports.value) return
@@ -82,30 +89,30 @@ const navigateReport = (direction: 'next' | 'prev') => {
     </p>
     <template v-else-if="reports?.length">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div
-          v-for="report in reports"
+        <ReportCard
+          v-for="report, i in reports"
           :key="report.id"
-          class="report-card p-4 bg-white border default-border-box flex flex-col gap-4 justify-between"
-        >
-          <div>
-            <p class="text-lg mb-2 font-bold">
-              {{ report.survey_label || `Report ${report.id}` }}
-            </p>
-            <p class="mt-1 text-sm text-gray-500">
-              {{ new Date(report.date_created).toLocaleString() }}
-            </p>
-          </div>
-          <PcoButton
-            label="View Report"
-            @click="setSelectedReport(report)"
-          />
-        </div>
+          :number="reports.length - i"
+          :date="(getReportDate(report.date_created) as string)"
+          :survey-label="report.survey_label"
+          @click="() => setSelectedReport(report)"
+        />
       </div>
       <div
         v-if="selectedReport"
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
       >
-        <div class="bg-white p-6 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto">
+        <div
+          ref="modal"
+          class="bg-bg-default p-6 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto relative"
+        >
+          <PcoButton
+            class="absolute top-4 right-4"
+            tertiary
+            icon-only
+            icon="ri:close-line"
+            @click="closeSelectedReport"
+          />
           <h2 class="text-2xl mb-4">
             {{ selectedReport.survey_label || `Report ${selectedReport.id}` }}
           </h2>
@@ -115,19 +122,17 @@ const navigateReport = (direction: 'next' | 'prev') => {
             :total-score="reportData.totalScore"
             :usages-scores="reportData.usagesScores"
             :floors-with-usages="reportData.floorsWithUsages"
-            :usages-ids="reportData.mainUsages"
+            :usages-ids="reportData.usagesIds"
           />
-          <div class="flex justify-between mt-4">
+          <div class="flex justify-between mt-12">
             <PcoButton
-              label="Previous"
+              label="Précédent"
+              secondary
               @click="navigateReport('prev')"
             />
             <PcoButton
-              label="Close"
-              @click="closeSelectedReport"
-            />
-            <PcoButton
-              label="Next"
+              label="Suivant"
+              secondary
               @click="navigateReport('next')"
             />
           </div>
@@ -139,11 +144,3 @@ const navigateReport = (direction: 'next' | 'prev') => {
     </p>
   </AppSection>
 </template>
-
-<style scoped lang="scss">
-.report-card {
-  border-radius: $border-radius--md;
-  border: solid 1px $border--default;
-  box-shadow: $shadow--md;
-}
-</style>
