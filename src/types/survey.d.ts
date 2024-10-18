@@ -173,6 +173,14 @@ declare global {
   }
 
   type SvgBuildingRenderMode = 'usages-scores' | 'usages' | 'floors-scores'
+
+  type InspectableReportProps = {
+    floorsScores: FloorScore[]
+    usagesScores: UsageScore[]
+    usagesIds: UsageIds[]
+    floorsWithUsages: FloorWithUsages[]
+    totalScore: number
+  }
 }
 
 export { }

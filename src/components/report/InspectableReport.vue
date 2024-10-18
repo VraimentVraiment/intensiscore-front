@@ -1,11 +1,5 @@
 <script setup lang="ts">
-defineProps<{
-  floorsScores: FloorScore[]
-  usagesScores: UsageScore[]
-  usagesIds: UsageIds[]
-  floorsWithUsages: FloorWithUsages[]
-  totalScore: number
-}>()
+defineProps<InspectableReportProps>()
 
 const renderMode = ref<SvgBuildingRenderMode>('usages-scores')
 
