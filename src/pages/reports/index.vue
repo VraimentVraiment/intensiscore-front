@@ -15,6 +15,7 @@ const { data: reports, error, pending } = useAsyncData('previous-reports', async
     method: 'POST',
     body: {
       reports: validPreviousReports.value,
+      fields: ['id', 'date_created', 'survey_label'],
     },
   })
   return data ?? []
