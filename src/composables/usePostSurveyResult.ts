@@ -38,20 +38,21 @@ export function usePostSurveyResult() {
       survey_label: content['survey-label'] as string,
     }
 
-    const items = await createItems<CmsSurveyRecord>({
-      collection: SURVEY_RESULTS_COLLECTION_NAME as string,
-      items: [item],
+    const items = await $fetch<{ data: { id: string }[] }>('api/survey/post-content', {
+      method: 'POST',
+      body: [item],
     })
 
-    const id = items[0]?.id
+    const id = items.data[0]?.id
 
     const secretItem = {
       content: JSON.stringify(secretItemContent),
       survey_id: id,
     }
-    await createItems({
-      collection: SURVEY_RESULTS_SECRETS_COLLECTION_NAME as string,
-      items: [secretItem],
+
+    await $fetch('api/survey/post-secrets', {
+      method: 'POST',
+      body: [secretItem],
     })
 
     resultId.value = id

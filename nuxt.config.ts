@@ -12,17 +12,17 @@ export default defineNuxtConfig({
   },
 
   modules: [
-   'nuxt-directus',
-   '@pinia/nuxt',
-   '@pinia-plugin-persistedstate/nuxt',
-   '@unocss/nuxt',
-   '@nuxt/eslint',
-   '@nuxtjs/stylelint-module',
-   '@nuxt/image',
-   '@nuxt/icon',
-   '@nuxtjs/seo',
-   'nuxt-link-checker',
-   'nuxt-seo-experiments',
+    'nuxt-directus',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@unocss/nuxt',
+    '@nuxt/eslint',
+    '@nuxtjs/stylelint-module',
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@nuxtjs/seo',
+    'nuxt-link-checker',
+    'nuxt-seo-experiments',
   ],
 
   eslint: {
@@ -64,6 +64,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     exclude: [
+      '/admin/**',
       '/diagnostic-approfondi',
     ],
     sources: [
@@ -77,6 +78,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     directusAccessToken: 'my-secret-key',
+    isAdmin: false,
     public: {
       directus: {
         url: 'http://0.0.0.0:8055',

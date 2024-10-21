@@ -1,23 +1,4 @@
 <script setup lang="ts">
-const {
-  siteTitle,
-  siteLogo,
-  titleSeparator,
-} = useAppConfig()
-
-useHead({
-  titleTemplate: (pageTitle) => {
-    return [
-      pageTitle,
-      siteTitle,
-    ]
-      .filter(Boolean)
-      .join(` ${titleSeparator} `)
-  },
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: siteLogo.src },
-  ],
-})
 </script>
 
 <template>

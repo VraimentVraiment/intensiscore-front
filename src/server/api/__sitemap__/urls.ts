@@ -40,7 +40,7 @@ export default defineSitemapEventHandler(async () => {
 
     const pagesUrls = pagesSlugs.map((page: { slug: string, title: string }) => ({
       loc: `/content/${page.slug}`,
-      title: page.title,
+      // title: page.title,
       // lastmod: new Date().toISOString(),
     }))
 
