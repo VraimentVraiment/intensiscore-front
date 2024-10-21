@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const {
+    sort = null,
     reports = [],
     fields = ['*'],
     admin,
@@ -24,6 +25,10 @@ export default defineEventHandler(async (event) => {
 
   const urlParams = new URLSearchParams()
   urlParams.append('fields', fields.join(','))
+
+  if (sort) {
+    urlParams.append('sort', sort)
+  }
 
   if (!admin || !isAdmin) {
     const filter = { id: { _in: reports.map(report => report.id) } }
