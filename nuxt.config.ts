@@ -64,6 +64,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     exclude: [
+      '/admin/**',
       '/diagnostic-approfondi',
     ],
     sources: [

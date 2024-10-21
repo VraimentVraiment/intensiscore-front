@@ -2,6 +2,7 @@
 import { onClickOutside } from '@vueuse/core'
 
 definePageMeta({
+  title: 'Suivi des diagnostics',
   middleware: ['admin'],
 })
 
@@ -82,7 +83,7 @@ const navigateReport = (direction: 'next' | 'prev') => {
 
 <template>
   <AppSection>
-    <h1>Admin: Survey Reports</h1>
+    <h1>Tous les diagnostics</h1>
     <PcoSpinner v-if="pending" />
     <p v-else-if="error">
       An error occurred while loading the reports: {{ error }}
