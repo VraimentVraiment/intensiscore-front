@@ -6,65 +6,51 @@ if (!slug) {
   navigateTo('/404')
 }
 
-type PageItemQueryParams = {
-  pageName: string
-  status: ('published' | 'private')[]
-  fields?: string[]
-}
-
 const { PAGES_COLLECTION_NAME } = useAppConfig()
 
-type DirectusBlock = {
-  id: string
-  type: string
-  data: unknown
-}
 type ContentPage = {
   title: string
-  content: DirectusBlock[]
+  content: string
 }
-async function useFetchDirectusPageItem({
-  pageName,
-  status = ['published'],
-  fields = ['*'],
-}: PageItemQueryParams): Promise<ContentPage | null> {
+
+/**
+ * Right now we cannot use dompurify on the server.
+ * When it is possible, we should use it to allow SSR generation of content hosted in Directus for better SEO.
+ * @see https://github.com/LeSuisse/vue-dompurify-html/issues/1917
+ */
+const { data: pageContent, error } = await useAsyncData('page-content', async () => {
   const { getItems } = useDirectusItems()
 
-  try {
-    const pages = await getItems<ContentPage>({
-      collection: PAGES_COLLECTION_NAME,
-      params: {
-        filter: {
-          slug: pageName,
-          status: {
-            _in: status,
-          },
+  const pages = await getItems<ContentPage>({
+    collection: PAGES_COLLECTION_NAME,
+    params: {
+      filter: {
+        slug: slug as string,
+        status: {
+          _in: ['published'],
         },
-        fields,
       },
-    })
-    return pages?.[0] ?? null
-  }
-  catch (error) {
-    return null
-  }
-}
-
-const pageContent = await useFetchDirectusPageItem({
-  pageName: slug as string,
-  status: ['published'],
-  fields: ['title', 'content'],
+      fields: ['title', 'content'],
+    },
+  })
+  return pages?.[0] ?? null
 })
 
-if (!pageContent) {
-  navigateTo('/404')
-}
-
-if (pageContent?.title) {
-  useHead({
-    title: pageContent.title,
+watch(error, () => {
+  throw createError({
+    statusCode: 404,
+    message: 'Issue while fetching content',
   })
-}
+})
+
+watchEffect(() => {
+  if (!pageContent.value) {
+    return
+  }
+  useHead({
+    title: pageContent.value.title,
+  })
+})
 </script>
 
 <template>
@@ -73,10 +59,12 @@ if (pageContent?.title) {
       <h1>
         {{ pageContent?.title }}
       </h1>
-      <PcoContent
-        v-if="pageContent?.content"
-        :content="pageContent?.content"
-      />
+      <ClientOnly>
+        <PcoContent
+          v-if="pageContent?.content"
+          :content="pageContent?.content"
+        />
+      </ClientOnly>
     </AppSection>
   </div>
 </template>

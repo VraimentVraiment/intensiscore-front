@@ -1,3 +1,5 @@
+@use '@/styles/abstracts/' as *;
+
 @each $font-weight, $font-weight-label in $font-weights {
   @each $font-style, $font-style-label in $font-styles {
     $url: "#{$font-path}/#{$font-prefix}#{$font-weight-label}#{$font-style-label}";

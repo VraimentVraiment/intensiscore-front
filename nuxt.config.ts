@@ -23,7 +23,21 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     'nuxt-link-checker',
     'nuxt-seo-experiments',
+    'nuxt-security',
   ],
+
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        'img-src': [
+          '\'self\'',
+          'data:',
+          process.env.NUXT_PUBLIC_DIRECTUS_URL,
+        ],
+        'upgrade-insecure-requests': process.env.NODE_ENV !== 'development',
+      },
+    },
+  },
 
   eslint: {
     config: {
