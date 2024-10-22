@@ -5,12 +5,10 @@ defineProps<{
 </script>
 
 <template>
-  <ClientOnly>
-    <div
-      v-dompurify-html="content"
-      class="wysiwyg mt-4"
-    />
-  </ClientOnly>
+  <div
+    v-dompurify-html="content"
+    class="wysiwyg mt-4"
+  />
 </template>
 
 <style scoped lang="scss">
