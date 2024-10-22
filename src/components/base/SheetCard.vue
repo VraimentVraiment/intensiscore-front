@@ -34,6 +34,7 @@ const hasImage = computed(() => {
         :src="image"
         alt="Image de la fiche"
         class="object-cover w-full h-full h-24 lg:h-32"
+        crossorigin="anonymous"
       >
     </div>
     <section
