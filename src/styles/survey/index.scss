@@ -1,5 +1,5 @@
-@import 'survey-theme-variables-overrides';
-@import 'components-patch/';
+@forward 'survey-theme-variables-overrides';
+@forward 'components-patch/';
 
 p.text-xl {
   font-size: 1.25rem !important; // fix survey first panel title text size

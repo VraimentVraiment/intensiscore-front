@@ -1,4 +1,4 @@
-@import 'root';
-@import 'typography';
-@import 'buttons';
-@import 'tabs';
+@forward 'root';
+@forward 'typography';
+@forward 'buttons';
+@forward 'tabs';

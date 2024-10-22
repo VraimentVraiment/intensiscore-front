@@ -1,6 +1,6 @@
-@import '@unocss/reset/tailwind';
-@import 'utilities/';
-@import 'components/';
+@forward '@unocss/reset/tailwind';
+@forward 'utilities/';
+@forward 'components/';
 
 .v-divider {
   background: $border--default;
