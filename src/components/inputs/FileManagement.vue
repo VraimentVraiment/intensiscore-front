@@ -40,7 +40,9 @@ const doReadFile = (file: File | null): void => {
 }
 
 const onFileChange = (e: Event) => {
-  doReadFile((e.target as HTMLInputElement).files?.[0] || null)
+  const input = e.target as HTMLInputElement
+  doReadFile(input.files?.[0] || null)
+  input.value = ''
 }
 
 // const onDrop = (files: File[] | null) => {
