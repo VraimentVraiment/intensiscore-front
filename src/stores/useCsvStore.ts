@@ -5,8 +5,8 @@ const STORE_OPTIONS = {
 }
 
 export const useCsvStore = defineStore('csv', () => {
-  const csv = ref<d3.DSVRowArray>()
-  const fileName = ref<string>()
+  const csv = ref<d3.DSVRowArray | null>(null)
+  const fileName = ref<string | null>(null)
 
   const setCsv = (data: d3.DSVRowArray) => {
     csv.value = data
@@ -16,15 +16,16 @@ export const useCsvStore = defineStore('csv', () => {
     fileName.value = name
   }
 
-  const reset = () => {
-    csv.value = undefined
+  const $reset = () => {
+    csv.value = null
+    fileName.value = null
   }
 
   const columns = computed(() => {
     if (!csv.value) {
       return []
     }
-    return Object.keys(csv.value[0])
+    return Object.keys(csv.value?.[0])
   })
 
   return {
@@ -34,6 +35,6 @@ export const useCsvStore = defineStore('csv', () => {
     parseCsv,
     setCsv,
     setFileName,
-    reset,
+    $reset,
   }
 }, STORE_OPTIONS)

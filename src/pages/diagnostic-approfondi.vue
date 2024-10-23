@@ -198,7 +198,7 @@ const colorScaleLegend = [exceptionLegend]
             :import-label="'Importer un fichier CSV'"
             :replace-label="'Remplacer le fichier CSV actuel'"
             :delete-label="'Supprimer le fichier CSV actuel'"
-            @reset="csvStore.reset"
+            @reset="csvStore.$reset"
             @file-read="({ file, content }) => {
               csvStore.setFileName(file.name)
               csvStore.setCsv(csvStore.parseCsv(content))
