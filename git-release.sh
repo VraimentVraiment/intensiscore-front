@@ -52,14 +52,14 @@ fi
 new_tag=$(increment_version "$latest_tag" "$1")
 echo "New tag: $new_tag"
 
-# Merge develop into main
+# Merge develop into main with a predefined commit message
 if [ "$DRY_RUN" = true ]; then
     echo "Dry run: git checkout main"
-    echo "Dry run: git merge develop --no-ff"
+    echo "Dry run: git merge develop --no-ff -m 'Merge branch 'develop' into main'"
     echo "Dry run: git push --force"
 else
     git checkout main
-    git merge develop --no-ff
+    git merge develop --no-ff -m "Merge branch 'develop' into main"
     git push --force
 fi
 

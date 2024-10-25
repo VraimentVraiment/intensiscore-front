@@ -17,7 +17,7 @@ export default defineAppConfig({
   operatorLogo: {
     width: 800,
     height: 320,
-    src: '/img/logos-membres.png',
+    src: '/img/logos-membres-2.png',
     alt: 'Logo des membres de l\'action collective',
   },
   headerNavItems: [
