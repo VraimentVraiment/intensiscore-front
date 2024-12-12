@@ -1,0 +1,13 @@
+
+fileignoreconfig:
+- filename: package-lock.json
+  checksum: ""
+  ignore_detectors: []
+- filename: yarn.lock
+  checksum: ""
+  ignore_detectors: []
+- filename: pnpm-lock.yaml
+  checksum: b809e0ff418ef2aa8273ac9397406ac00f6e38f8297105c894f4d59c502fb97a
+  ignore_detectors: []
+
+version: ""
